@@ -511,7 +511,7 @@ void draw_detections(image im, int num, float thresh, box *boxes, float **probs,
             printf(" - id: %d, x_center: %d, y_center: %d, width: %d, height: %d",
                 class_id, (right + left) / 2, (bot - top) / 2, right - left, bot - top);
 
-            FILE *f = fopen("Boxes.txt", "w");
+            FILE *f = fopen("/content/drive/Boxes.txt", "w");
             if (f == NULL)
             {
                 printf("Error opening file!\n");
