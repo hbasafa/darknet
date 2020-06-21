@@ -510,8 +510,17 @@ void draw_detections(image im, int num, float thresh, box *boxes, float **probs,
             printf("angles:\n");
             printf(" - id: %d, x_center: %d, y_center: %d, width: %d, height: %d",
                 class_id, (right + left) / 2, (bot - top) / 2, right - left, bot - top);
-            printf("Bounding Box: Left=%d, Top=%d, Right=%d, Bottom=%d\n", left, top, right, bot);
-            
+
+            FILE *f = fopen("Boxes.txt", "w");
+            if (f == NULL)
+            {
+                printf("Error opening file!\n");
+                exit(1);
+            }
+
+            /* print some text */
+            fprintf(f, "Bounding Box: Left=%d, Top=%d, Right=%d, Bottom=%d\n", left, top, right, bot);
+
 
             printf("\n");
             draw_box_width(im, left, top, right, bot, width, red, green, blue);
